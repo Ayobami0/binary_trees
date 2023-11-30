@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 #include <stddef.h>
 
-void _count_traverse(const binary_tree_t *tree,
+void _height(const binary_tree_t *tree,
 	size_t *longest_path, size_t current_height);
 /**
  * binary_tree_height - Measures the height of a binary tree
@@ -18,18 +18,18 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	_count_traverse(tree, &longest_path, current_path);
+	_height(tree, &longest_path, current_path);
 	return (longest_path);
 }
 /**
- * _count_traverse - Traverses a binary tree and counts the height
+ * _height - Traverses a binary tree and counts the height
  * @tree: Pointer to the root node of the tree
  * @longest_path: Pointer to the longest path found
  * @current_height: Current height of the tree
  *
  * Description: Recursively traverses the tree and updates the longest path
  */
-void _count_traverse(const binary_tree_t *tree,
+void _height(const binary_tree_t *tree,
 	size_t *longest_path, size_t current_height)
 {
 	if (!tree)
@@ -38,6 +38,6 @@ void _count_traverse(const binary_tree_t *tree,
 	if ((*longest_path) < current_height)
 		*longest_path = current_height;
 
-	_count_traverse(tree->left, longest_path, current_height + 1);
-	_count_traverse(tree->right, longest_path, current_height + 1);
+	_height(tree->left, longest_path, current_height + 1);
+	_height(tree->right, longest_path, current_height + 1);
 }
