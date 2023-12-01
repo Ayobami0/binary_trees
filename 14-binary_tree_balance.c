@@ -19,11 +19,11 @@ int binary_tree_balance(const binary_tree_t *tree)
 
 /**
  * _height - Traverses a binary tree and counts the height
- * @tree: Pointer to the root node of the tree
- * @longest_path: Pointer to the longest path found
- * @current_height: Current height of the tree
  *
- * Description: Recursively traverses the tree and updates the longest path
+ * Description: Recursively traverses the tree and 
+ *	returns the longest path
+ *
+ *	Return: (int) the height of the tree.
  */
 int _height(binary_tree_t *tree)
 {
